@@ -8,25 +8,37 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 </head>
 <body>
-    <canvas id="mychart" width="400" height="400"></canvas>
+    <canvas id="mychart" width="800" height="400"></canvas>
 <script>
     chartIt();
 
     async function chartIt() {
         const data = await getData();
-    const ctx = document.getElementById('mychart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-        labels: data.xs,
-        datasets: [{
-            label: 'Global Average Temperature',
-            data: data.ys,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
+        const ctx = document.getElementById('mychart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+            labels: data.xs,
+            datasets: [{
+                label: 'Combined Land-Surface Air and Sea-Surface Water Temperature in °C',
+                 data: data.ys,
+                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
         }]
     },
+    options: {
+        scales: {
+            y: {
+                ticks: {
+                    // Include a dollar sign in the ticks
+                    callback: function(value, index, ticks) {
+                        return value + '°';
+                    }
+                }
+            }
+        }
+    }
   });
 }
         //Data from: https://data.giss.nasa.gov/gistemp/
