@@ -14,9 +14,14 @@
   <li> Select the CSV format from 'Global-mean monthly, seasonal, and annual means, 1880-present'. </li>
 </ol>
 
+## Future 
+
+Add more features
+
 ## Credits
 Data from: https://data.giss.nasa.gov/gistemp/<br>
-Mean from: https://earthobservatory.nasa.gov/
+Mean from: https://earthobservatory.nasa.gov/<br>
+[Chart.js](https://www.chartjs.org/docs/latest/)
 
 ## License
 ### The MIT License (MIT)
